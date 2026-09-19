@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}PhishGuard | Cyber Safety{% endblock %}{% block content %}
+<section class="content">
+  <div class="hero">
+    <div class="hero-copy"><div class="eyebrow"><i></i> YOUR CYBER-SAFETY WORKSPACE</div><h1>Stay one step ahead<br>of <span class="gradient">phishing threats.</span></h1><p>Build real-world awareness through safe, interactive practice. Learn to spot suspicious messages before they become a risk.</p><div class="hero-buttons"><a class="btn primary" href="{{ url_for('register') }}">Start learning <span>→</span></a><a class="btn secondary" href="#how">Explore the platform</a></div><div class="trust-line">✓ No real phishing links &nbsp; · &nbsp; ✓ Safe simulated scenarios</div></div>
+    <div class="hero-visual"><div class="glow"></div><div class="orbit o1"></div><div class="orbit o2"></div><div class="shield-art">✓</div><div class="float-chip chip-one">✦ Threat awareness</div><div class="float-chip chip-two">✓ Safe practice</div></div>
+  </div>
+  <div class="section-head" id="how"><div><h2>Learn to recognize the red flags</h2><p>Practice the decisions that help keep your digital life safer.</p></div><span class="pill">HOW IT WORKS</span></div>
+  <div class="feature-grid"><article class="feature"><div class="feature-icon blue">✉</div><h3>Interactive simulations</h3><p>Inspect realistic fictional emails and texts, select warning signs, and make a safe-response choice.</p></article><article class="feature"><div class="feature-icon purple">✧</div><h3>AI message analyzer</h3><p>Get plain-language explanations of suspicious signals and practical next steps.</p></article><article class="feature"><div class="feature-icon green">▤</div><h3>Learn from every attempt</h3><p>Review feedback, track practice progress, and build safer digital habits.</p></article></div>
+  <div class="cta-band" id="learn"><div><span class="eyebrow">READY TO PRACTICE?</span><h2>Confidence starts with awareness.</h2><p>Start with a short, safe scenario—no real links or credentials required.</p></div><a class="btn primary" href="{{ url_for('register') }}">Create free account →</a></div>
+</section>{% endblock %}

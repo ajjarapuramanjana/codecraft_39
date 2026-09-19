@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081321">
+  <title>{% block title %}PhishGuard{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">盾</span><span>Phish<span class="cyan">Guard</span><small>CYBER SAFETY LAB</small></span></a>
+    <nav class="nav">
+      <span class="nav-caption">WORKSPACE</span>
+      <a href="{{ url_for('dashboard') }}" class="{{ 'active' if request.endpoint=='dashboard' else '' }}">▦ <span>Dashboard</span></a>
+      <a href="{{ url_for('simulator') }}" class="{{ 'active' if request.endpoint=='simulator' else '' }}">✉ <span>Training Simulator</span></a>
+      <a href="{{ url_for('analyzer') }}" class="{{ 'active' if request.endpoint=='analyzer' else '' }}">✧ <span>AI Message Analyzer</span></a>
+      <a href="{{ url_for('index') }}#learn">▤ <span>Learning Center</span></a>
+    </nav>
+    <div class="sidebar-bottom"><div class="safe-card">✓ <div><b>Safe learning space</b><small>All scenarios are simulated.</small></div></div>
+      {% if session.get('user_id') %}<div class="profile"><span class="avatar">{{ session.get('user_name','G')[0]|upper }}</span><div><b>{{ session.get('user_name') }}</b><small>Active learner</small></div><a class="logout" href="{{ url_for('logout') }}">↗</a></div>
+      {% else %}<a class="outline-btn full" href="{{ url_for('login') }}">Sign in</a>{% endif %}
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button><div class="crumb">PhishGuard <span>/</span> <b>{% block breadcrumb %}Cyber Safety{% endblock %}</b></div><div class="top-right"><span class="system-status"><i></i> System operational</span>{% if session.get('user_id') %}<a class="top-avatar" href="{{ url_for('dashboard') }}">{{ session.get('user_name','G')[0]|upper }}</a>{% else %}<a class="top-signin" href="{{ url_for('login') }}">Sign in</a>{% endif %}</div></header>
+    {% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<div class="flash-wrap">{% for category,message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}
+    {% block content %}{% endblock %}
+    <footer>© 2026 PhishGuard <span>Practice safely. Think before you click.</span></footer>
+  </main>
+</div>
+</body></html>

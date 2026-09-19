@@ -1,0 +1,20 @@
+SCENARIOS = [
+ {"id":"mail-01","title":"Urgent account warning","channel":"Email","level":"Beginner",
+  "sender":"Account Support <notice@sample-mail.example>","subject":"Immediate action required",
+  "body":"We detected unusual activity. Your account may be limited today unless you verify your details. This is a fictional training message; no link is included.",
+  "clues":["Unexpected urgency","Unverified sender","Request to verify details"],"answer":"Phishing",
+  "explanation":"Urgency plus a request to verify sensitive information are common phishing indicators. Sender display names can be forged.",
+  "safe_action":"Do not use a message link. Open the official app or website independently, or contact support using a trusted channel."},
+ {"id":"mail-02","title":"Routine class update","channel":"Email","level":"Beginner",
+  "sender":"Faculty Office <office@college.example>","subject":"Seminar schedule update",
+  "body":"The seminar begins at 2 PM in the main auditorium. Please check the known student portal for any changes.",
+  "clues":["Routine informational message","Directs to known portal"],"answer":"Legitimate",
+  "explanation":"This fictional message provides routine information and points to a known portal. Context still matters; verify if unexpected.",
+  "safe_action":"Check the portal using your saved bookmark or contact the faculty office through known details."},
+ {"id":"sms-03","title":"Unexpected delivery fee","channel":"SMS","level":"Intermediate",
+  "sender":"Parcel Update","subject":"Delivery on hold",
+  "body":"Your parcel is on hold. Pay a small fee immediately to release it. Fictional awareness sample; do not visit any links.",
+  "clues":["Unexpected payment request","Urgency","Unverified delivery context"],"answer":"Phishing",
+  "explanation":"Unexpected fees and time pressure can push people into unsafe payment flows.",
+  "safe_action":"Check tracking through the courier’s official app or website, not through a message."}
+]
